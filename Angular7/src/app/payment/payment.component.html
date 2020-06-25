@@ -1,0 +1,29 @@
+<form #paymentFrom="ngForm" (ngSubmit)="onSubmit(paymentFrom)">
+    <input type="hidden" name="PMId" [value]="service.userDeatils.PMId">
+    
+    <input type="text" #CardOwnerName="ngModel" 
+    [(ngModel)]="service.userDeatils.CardOwnerName" 
+    name="CardOwnerName" placeholder="CardOwnerName">
+    <input type="text" #CardNumber="ngModel" 
+    [(ngModel)]="service.userDeatils.CardNumber"
+    name="CardNumber" placeholder="CardNumber">
+    <input type="text" #ExpirationDate="ngModel" 
+    [(ngModel)]="service.userDeatils.ExpirationDate"
+    name="ExpirationDate" placeholder="ExpirationDate">
+    <input type="text" #CVV="ngModel" 
+    [(ngModel)]="service.userDeatils.CVV"
+    name="CVV" placeholder="CVV">
+    <input type="submit" value="Submit" />
+</form>
+
+<table class="table table-hover">
+  <tr *ngFor="let pd of service.list">
+    <td (click)="populateForm(pd)">{{pd.CardOwnerName}}</td>
+    <td (click)="populateForm(pd)">{{pd.CardNumber}}</td>
+    <td (click)="populateForm(pd)">{{pd.ExpirationDate}}</td>
+    <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.PMId)"></i>
+    </td>
+  </tr>
+</table>
+

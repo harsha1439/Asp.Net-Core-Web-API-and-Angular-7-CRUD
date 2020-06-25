@@ -10,13 +10,15 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { PaymentDetailComponent } from './payment-details/payment-detail/payment-detail.component';
 import { PaymentDetailListComponent } from './payment-details/payment-detail-list/payment-detail-list.component';
 import { PaymentDetailService } from './shared/payment-detail.service';
-
+import { PaymentComponent } from './payment/payment.component';
+import {PaymentService} from './payment.service'
 @NgModule({
   declarations: [
     AppComponent,
     PaymentDetailsComponent,
     PaymentDetailComponent,
-    PaymentDetailListComponent
+    PaymentDetailListComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { PaymentDetailService } from './shared/payment-detail.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [PaymentDetailService],
+  providers: [PaymentDetailService,PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
